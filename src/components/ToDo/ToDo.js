@@ -2,10 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
-import ManageToDo from "./ManageToDo";
 import Navbar from "../Share/Navbar/Navbar";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../Firebase/Firebase.init";
+import ToDoModal from "./ToDoModal";
 const ToDo = () => {
   const [user] = useAuthState(auth);
   const {
@@ -35,7 +35,7 @@ const ToDo = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div className="flex justify-center pt-10">
           <h2 className=" text-4xl text-center font-bold uppercase  my-4">
             Add a new To do
@@ -81,7 +81,17 @@ const ToDo = () => {
           </form>
         </div>
         <div className="flex justify-center">
-          <ManageToDo />
+          <div className="w-96">
+            <label
+              htmlFor="todo-modal"
+              className="mt-4 w-full  text-black modal-button btn btn-outline btn-secondary"
+            >
+              Complete
+            </label>{" "}
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <ToDoModal />
         </div>
       </div>
     </>

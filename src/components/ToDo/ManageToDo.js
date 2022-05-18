@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ToDoModal from "./ToDoModal";
 import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../Firebase/Firebase.init";
 const ManageToDo = () => {
   const [todos, setTodos] = useState([]);
-  const [todoInfo, setTodoInfo] = useState(null);
   const [user] = useAuthState(auth);
   const email = user?.email;
   useEffect(() => {
@@ -39,7 +37,7 @@ const ManageToDo = () => {
     }
   };
   return (
-    <div className="w-[800px] mt-4 pb-20">
+    <div className=" mt-4 pb-20">
       <div className="overflow-x-auto">
         {todos.length > 0 ? (
           <table className="table w-full">
@@ -59,14 +57,6 @@ const ManageToDo = () => {
                     <td>{item.name}</td>
                     <td>{item.description}</td>
                     <td>
-                      <label
-                        onClick={() => setTodoInfo(item)}
-                        htmlFor="todo-modal"
-                        className=" modal-button btn btn-sm"
-                      >
-                        Complete
-                      </label>{" "}
-                      ||{" "}
                       <button
                         onClick={() => handleToDoDelete(item._id)}
                         className=" btn-warning btn btn-sm"
@@ -79,10 +69,11 @@ const ManageToDo = () => {
             </tbody>
           </table>
         ) : (
-          ""
+          <h2 className=" text-center font-bold uppercase text-2xl">
+            No Task Available!
+          </h2>
         )}
       </div>
-      {todoInfo && <ToDoModal todoInfo={todoInfo} />}
     </div>
   );
 };
