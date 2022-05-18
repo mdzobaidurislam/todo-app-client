@@ -6,7 +6,7 @@ const ToDoModal = () => {
     <div>
       <input type="checkbox" id="todo-modal" className="modal-toggle" />
       <div className="modal  sm:modal-middle cursor-pointer">
-        <div className="modal-box relative sm:w-6/12 max-w-3xl">
+        <div className="modal-box  sm:w-7/12 lg:max-w-2xl">
           <label
             for="todo-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"

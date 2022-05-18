@@ -45,7 +45,7 @@ const ManageToDo = () => {
               <tr>
                 <th></th>
                 <th>Name</th>
-                <th>Job</th>
+                <th>Description</th>
                 <th>Action</th>
               </tr>
             </thead>
