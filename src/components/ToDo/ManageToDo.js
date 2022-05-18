@@ -12,7 +12,7 @@ const ManageToDo = () => {
   useEffect(() => {
     const getAllServices = async () => {
       const { data } = await axios.get(
-        `http://localhost:8080/api/todo/${email}`
+        `https://todo-apps-servers.herokuapp.com/api/todo/${email}`
       );
       if (data) {
         setTodos(data);
@@ -25,7 +25,7 @@ const ManageToDo = () => {
   const handleToDoDelete = async (id) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:8080/api/todo/${id}`
+        `https://todo-apps-servers.herokuapp.com/api/todo/${id}`
       );
       if (data.success) {
         toast.success(data.msg);
@@ -39,7 +39,7 @@ const ManageToDo = () => {
     }
   };
   return (
-    <div className="w-[600px] mt-4 pb-20">
+    <div className="w-[800px] mt-4 pb-20">
       <div className="overflow-x-auto">
         {todos.length > 0 ? (
           <table className="table w-full">

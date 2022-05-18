@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
         <Route
           path="/todo"
           element={
@@ -19,6 +18,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/" element={<Login />} />
       </Routes>
       <ToastContainer />
     </>

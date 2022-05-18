@@ -23,7 +23,7 @@ const ToDo = () => {
       description: inputdata.description,
     };
     const { data } = await axios.post(
-      `http://localhost:8080/api/todo`,
+      `https://todo-apps-servers.herokuapp.com/api/todo`,
       AddData
     );
     if (data.success) {

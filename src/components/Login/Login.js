@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../Firebase/Firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import SpinnerLoading from "../Share/SpinnerLoading";
@@ -7,8 +7,6 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   let navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || "/";
 
   // google
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -16,9 +14,9 @@ const Login = () => {
   // use effect
   useEffect(() => {
     if (googleUser) {
-      navigate(from, { replace: true });
+      navigate("/todo");
     }
-  }, [googleUser, from, navigate]);
+  }, [googleUser, navigate]);
 
   let errorElement;
   if (googleError) {
@@ -47,7 +45,7 @@ const Login = () => {
     return <SpinnerLoading />;
   }
   if (googleUser) {
-    navigate(from, { replace: true });
+    navigate("/todo");
   }
 
   return (
